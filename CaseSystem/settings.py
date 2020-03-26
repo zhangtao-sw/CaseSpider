@@ -106,7 +106,7 @@ REDIS_DB = 8
 
 # sql
 # create database casedb charset=utf8;
-# create table base_info (id int primary key auto_increment,Case_Number char(8) not null,Case_link char(70),Account_Name varchar(70),Open_Time varchar(25),Case_Owner varchar(40),Contact_Name varchar(40),Country varchar(20),Subject varchar(200),Description varchar(5000),PA1 varchar(40),PA2 varchar(40),PA3 varchar(80),OS_Android varchar(40),Software_Product varchar(50),Resolution_Summary varchar(300),ResponsivenessToTheCase varchar(20),QualityOfTechnicalSupport varchar(20),ProfessionalismOfQCEngineer varchar(20));
-# create table Attachments ( Case_Number char(8) not null,link varchar(120),name varchar(50),Description varchar(250),type varchar(10),uploader varchar(20),size varchar(30));
-# create table Case_Comments(Case_Number char(8) not null,name varchar(50),time varchar(30),content varchar(5000));
+# create table base_info (id int primary key auto_increment,Case_Number char(8) not null,Case_link char(70),Account_Name varchar(70),Open_Time varchar(25),Case_Owner varchar(40),Contact_Name varchar(40),Country varchar(40),Subject varchar(200),Description varchar(8000),PA1 varchar(100),PA2 varchar(100),PA3 varchar(100),OS_Android varchar(40),Software_Product varchar(50),Resolution_Summary varchar(300),ResponsivenessToTheCase varchar(20),QualityOfTechnicalSupport varchar(20),ProfessionalismOfQCEngineer varchar(20));
+# create table Attachments ( Case_Number char(8) not null,link varchar(120),name varchar(100),Description varchar(250),type varchar(10),uploader varchar(20),size varchar(30));
+# create table Case_Comments(Case_Number char(8) not null,name varchar(50),time varchar(50),content varchar(5000));
 # create table Case_KBA_Doc(Case_Number char(8) not null,link varchar(75),name varchar(50),Title varchar(100));
