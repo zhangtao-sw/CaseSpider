@@ -22,4 +22,12 @@ class CasesystemItem(scrapy.Item):
     PA1 = scrapy.Field()
     PA2 = scrapy.Field()
     PA3 = scrapy.Field()
-
+    OS_Android = scrapy.Field()
+    Software_Product = scrapy.Field()
+    Resolution_Summary = scrapy.Field()
+    ResponsivenessToTheCase = scrapy.Field()
+    QualityOfTechnicalSupport = scrapy.Field()
+    ProfessionalismOfQCEngineer = scrapy.Field()
+    Case_KBA_Doc = scrapy.Field()
+    Case_Attachments = scrapy.Field()
+    Case_Comments = scrapy.Field()
