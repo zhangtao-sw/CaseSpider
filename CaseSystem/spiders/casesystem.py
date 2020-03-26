@@ -79,25 +79,25 @@ class CasesystemSpider(scrapy.Spider):
             Account_Name = re.findall(temp_str, text, re.DOTALL)[0].split(">")[-1].strip()
         except Exception as e:
             Account_Name = ""
-            print(e)
+            print(e,"Account_Name")
         try:
             temp_str = '<td class="labelCol">Contact Name</td>(.*?)</a></td></tr>'
             Contact_Name = re.findall(temp_str, text, re.DOTALL)[0].split(">")[-1].strip()
         except Exception as e:
             Contact_Name = ""
-            print(e)
+            print(e,'Contact_Name')
         try:
             temp_str = 'Contact Office Country</td><td class="dataCol">(.*?)</td></tr>'
             Country = re.findall(temp_str, text, re.DOTALL)[0].strip()
         except Exception as e:
             Country = ""
-            print(e)
+            print(e,'Country')
         try:
             temp_str = 'Case Owner</td>(.*?)</a>'
             Case_Owner = re.findall(temp_str, text, re.DOTALL)[0].split(">")[-1].strip()
         except Exception as e:
             Case_Owner = ""
-            print(e)
+            print(e,'Case_Owner')
         try:
             temp_str = 'Date/Time Opened</td><td class="dataCol">(.*?)</td></tr>'
             Open_Time = re.findall(temp_str, text, re.DOTALL)[0].split(" ")[0]
@@ -107,13 +107,13 @@ class CasesystemSpider(scrapy.Spider):
                 Open_Time = re.findall(temp_str, text, re.DOTALL)[0].split(" ")[-3].strip()
             except Exception as e:
                 Open_Time = ""
-                print(e)
+                print(e,'Open_Time')
         try:
             temp_str = 'Subject</td><td class="data2Col" colspan="3">(.*?)</td></tr>'
             Subject = re.findall(temp_str, text, re.DOTALL)[0].strip()
         except Exception as e:
             Subject = ""
-            print(e)
+            print(e,'Subject')
         try:
             temp_str = 'Description</td><td class="data2Col" colspan="3">(.*?)</td></tr>'
             Description = re.findall(temp_str, text, re.DOTALL)[0].strip()
@@ -123,7 +123,7 @@ class CasesystemSpider(scrapy.Spider):
                 Description = re.findall(temp_str, text, re.DOTALL)[0].strip()
             except Exception as e:
                 Description = ""
-                print(e)
+                print(e,'Description')
         try:
             temp_str = "Please enter a value that best represents the problem area for which you are creating this case.'\\);</script></span></td><td class=(.*?)</td>"
             PA1 = re.findall(temp_str, text, re.DOTALL)[0].split(">")[-1].strip()
@@ -133,7 +133,7 @@ class CasesystemSpider(scrapy.Spider):
                 PA1 = re.findall(temp_str, text, re.DOTALL)[0].split(">")[-1].strip()
             except Exception as e:
                 PA1 = ""
-                print(e)
+                print(e,'PA1')
         try:
             temp_str = "Please choose a value that best represents the problem area for which you are creating this case.'\\);</script></span></td><td class=(.*?)</td>"
             PA2 = re.findall(temp_str, text, re.DOTALL)[0].split(">")[-1].strip()
@@ -143,7 +143,7 @@ class CasesystemSpider(scrapy.Spider):
                 PA2 = re.findall(temp_str, text, re.DOTALL)[0].strip()
             except Exception as e:
                 PA2 = ""
-                print(e)
+                print(e,'PA2')
         try:
             temp_str = "Please enter value that best describes the problem area for which you are creating this case.'\\);</script></span></td><td class=(.*?)</td>"
             PA3 = re.findall(temp_str, text, re.DOTALL)[0].split(">")[-1].strip()
@@ -153,43 +153,43 @@ class CasesystemSpider(scrapy.Spider):
                 PA3 = re.findall(temp_str, text, re.DOTALL)[0].strip()
             except Exception as e:
                 PA3 = ""
-                print(e)
+                print(e,'PA3')
         try:
             temp_str = 'OS Delivered by Qualcomm</td>.*?>(.*?)</td>'
             OS_Android = re.findall(temp_str, text, re.DOTALL)[0].strip()
         except Exception as e:
             OS_Android = ""
-            print(e)
+            print(e,'OS_Android')
         try:
             temp_str = 'Software Product</td>.*?>(.*?)</td>'
             Software_Product = re.findall(temp_str, text, re.DOTALL)[0].strip()
         except Exception as e:
             Software_Product = ""
-            print(e)
+            print(e,'Software_Product')
         try:
             temp_str = 'Resolution Summary</td>.*?>(.*?)</td>'
             Resolution_Summary = re.findall(temp_str, text, re.DOTALL)[0].strip()
         except Exception as e:
             Resolution_Summary = ""
-            print(e)
+            print(e,'Resolution_Summary')
         try:
             temp_str = '>Responsiveness To The Case<.*?<td .*?>(.*?)</td>'
             ResponsivenessToTheCase = re.findall(temp_str, text, re.DOTALL)[0].strip()
         except Exception as e:
             ResponsivenessToTheCase = ""
-            print(e)
+            print(e,'ResponsivenessToTheCase')
         try:
             temp_str = '>Quality Of Technical Support<.*?<td .*?>(.*?)</td>'
             QualityOfTechnicalSupport = re.findall(temp_str, text, re.DOTALL)[0].strip()
         except Exception as e:
             QualityOfTechnicalSupport = ""
-            print(e)
+            print(e,'QualityOfTechnicalSupport')
         try:
             temp_str = '>Professionalism Of QC Engineer<.*?<td .*?>(.*?)</td>'
             ProfessionalismOfQCEngineer = re.findall(temp_str, text, re.DOTALL)[0].strip()
         except Exception as e:
             ProfessionalismOfQCEngineer = ""
-            print(e)
+            print(e,'ProfessionalismOfQCEngineer')
         try:
             temp_str = '>NEW Case Attachments<.*?<!-- ListRow -->(.*?)</tr></table>'
             temp_result = re.findall(temp_str, text, re.DOTALL)[0]
@@ -206,7 +206,7 @@ class CasesystemSpider(scrapy.Spider):
                     temp_dict['size'] = res[5].strip()
                     Case_Attachments.append(temp_dict)
         except Exception as e:
-            print(e)
+            print(e,'Case_Attachments')
         try:
             temp_str = '>Case Comments<.*?<!-- ListRow -->(.*?)</tr></table>'
             temp_result = re.findall(temp_str, text, re.DOTALL)[0]
@@ -220,7 +220,7 @@ class CasesystemSpider(scrapy.Spider):
                     temp_dict['content']=res[2].strip()
                     Case_Comments.append(temp_dict)
         except Exception as e:
-            print(e)
+            print(e,'Case_Comments')
         try:
             temp_str = '>Case KBA/Documents Associations<.*?<!-- ListRow -->(.*?)</tr></table>'
             temp_result = re.findall(temp_str, text, re.DOTALL)[0]
@@ -234,7 +234,7 @@ class CasesystemSpider(scrapy.Spider):
                     temp_dict["Title"] = res[2].strip()
                     Case_KBA_Doc.append(temp_dict)
         except Exception as e:
-            print(e)
+            print(e,'Case_KBA_Doc')
         item['Case_link'] = case_url
         item['Case_Number'] = Case_Number
         item['Account_Name'] = Account_Name
